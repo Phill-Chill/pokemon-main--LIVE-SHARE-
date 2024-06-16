@@ -88,7 +88,7 @@ void dialogoInicial(void) {
         } 
     }
 
-    void ITEMeevee(EeveeSt *Vic, int HP, int Attack, int potion, int PP, int DMG){
+    void ITEMeevee(EeveeSt *Eev, int HP, int Attack, int potion, int PP, int DMG){
         int escolha;
         scanf("%d", &escolha);
 
@@ -444,6 +444,7 @@ printf("                                                                        
 void dialogoFinal(vitoria) {
 
     if (vitoria == 1) {
+        int escolha;
 
 		printf("Treinador N: ...\nTreinador N: Hahahaha... eu perdi, né?\nTreinador N: Nunca pensei que pokémons poderiam lutar com tanto vigor... seus pokémons não estavam sendo forçados...\nTreinador N: Eles estavam lutando por vontade própria, para defender você.\n\n");
 	

@@ -18,6 +18,9 @@
     //BAG SPRITES
     void bulbaBAG(BulbasaurSt Bulba);
     void victiniBAG(VictiniSt Vic);
+    void eeveeBAG(EeveeSt Eev);
     //ANIMAÇÃO
     void eeveeAnima(EeveeSt Eev);
+    //DIALOGO
+    void dialogoFinal(int vitoria);
 #endif

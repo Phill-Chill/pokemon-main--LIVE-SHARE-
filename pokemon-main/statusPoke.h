@@ -25,7 +25,7 @@
         char type;
         char style;
         int accuracy;
-   }VictiniSt, BulbasaurSt, EeveeSt;
+   }VictiniSt, BulbasaurSt, EeveeSt;/*MESMA DECLARAÇÃO DA STARUCT ACIMA: conflito*/
 
    // tackle, razor_blade, swift, scratch;
     #endif

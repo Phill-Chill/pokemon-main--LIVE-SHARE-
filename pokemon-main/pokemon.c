@@ -30,7 +30,7 @@ void musicbattle(){
 
 void musicHP() {
     // Caminho para o arquivo de som MP3
-    const char *soundFile = "/mnt/c/Users/USER/Downloads/musica/All Mini Shield Sounds (Fortnite) - Sound Effects for editing.mp3";
+    const char *soundFile = "/mnt/c/Users/USER/Downloads/pokemon-main/pokemon-main/musica/All Mini Shield Sounds (Fortnite) - Sound Effects for editing.mp3";
 
     // Comando para tocar o som uma vez usando mpg123
     char command[512];
@@ -195,9 +195,9 @@ int main(){
                 
                     clear_screen();
                     bulbasaurFront(Bulba);
-                    eevBAG(Eev);          
+                    eeveeBAG(Eev);          
                 
-                   ITEMeevee(&Eev, Eev.HP, Eev.Attack, Eev.potion, Eev.DMG);
+                   ITEMeevee(&Eev, Eev.HP, Eev.Attack, Eev.potion, Eev.PP, Eev.DMG);
                 
                     clear_screen();
                     bulbasaurFront(Bulba);
