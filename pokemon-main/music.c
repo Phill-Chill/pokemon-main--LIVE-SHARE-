@@ -3,6 +3,14 @@
 #include <time.h>
 #include "music.h"
 
+
+void sleep_ms(int milliseconds) {
+    struct timespec ts;
+    ts.tv_sec = milliseconds / 1000;
+    ts.tv_nsec = (milliseconds % 1000) * 1000000;
+    nanosleep(&ts, NULL);
+}
+
 void Pokemon(){
     
     void clear_screen() {
@@ -12,12 +20,9 @@ void Pokemon(){
         system("clear");
         #endif
     }
-    void sleep_ms(int milliseconds) {
-    struct timespec ts;
-    ts.tv_sec = milliseconds / 1000;
-    ts.tv_nsec = (milliseconds % 1000) * 1000000;
-    nanosleep(&ts, NULL);
-}
+
+    
+    
 //printar POKEMON
     printf("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////\n");
     printf("/  PPPPPPPPPPPPPPPPP                    kkkkkkkk                                                                                             /\n");
@@ -265,7 +270,7 @@ void Pokemon(){
 
 void music() {
     // Caminho para o arquivo de som MP3
-    const char *soundFile = "/mnt/c/Users/USER/Downloads/musica/Pokemon Red-Blue Opening (320).mp3";
+    const char *soundFile = "/mnt/c/Users/USER/Downloads/pokemon-mainn/pokemon-main/musica/Pokemon Red-Blue Opening (320).mp3";
 
     // Comando para tocar o som em loop usando mpg123
     char command[512];
@@ -283,6 +288,26 @@ void music() {
 
     // Para a música matando o processo mpg123
     system("pkill mpg123");
+
+    return; // Finaliza a função
+}
+
+void musicHP() {
+   
+    // Caminho para o arquivo de som MP3
+    const char *soundFile = "/mnt/c/Users/USER/Downloads/pokemon-mainn/pokemon-main/musica/All Mini Shield Sounds (Fortnite) - Sound Effects for editing.mp3";
+
+    // Comando para tocar o som uma vez usando mpg123
+    char command[512];
+    snprintf(command, sizeof(command), "mpg123 -q \"%s\"", soundFile);
+
+    // Executa o comando
+    system(command);
+
+    
+        
+       // sleep_ms(5000);
+    
 
     return; // Finaliza a função
 }

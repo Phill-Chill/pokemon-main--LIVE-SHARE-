@@ -1,21 +1,16 @@
 #include <stdio.h>
-#include <time.h> 
+//#include <time.h> 
 #include <stdlib.h>
 #include "PokemonUser.h"
 #include "statusPoke.h"
 #include "music.h"
 //DELAY
-void sleep_ms(int milliseconds) {
-    struct timespec ts;
-    ts.tv_sec = milliseconds / 1000;
-    ts.tv_nsec = (milliseconds % 1000) * 1000000;
-    nanosleep(&ts, NULL);
-}
+
 
 void musicbattle(){
 
         // Caminho para o arquivo de som MP3
-    const char *soundFile = "/mnt/c/Users/USER/Downloads/musica/Trainer Battle - Pokémon Red & Blue Extended.mp3";
+    const char *soundFile = "/mnt/c/Users/USER/Downloads/pokemon-mainn/pokemon-main/musica/Trainer Battle - Pokémon Red & Blue Extended.mp3";
 
     // Comando para tocar o som em loop usando mpg123
     char command[512];
@@ -28,27 +23,12 @@ void musicbattle(){
 }
 
 
-void musicHP() {
-    // Caminho para o arquivo de som MP3
-    const char *soundFile = "/mnt/c/Users/USER/Downloads/pokemon-main/pokemon-main/musica/All Mini Shield Sounds (Fortnite) - Sound Effects for editing.mp3";
 
-    // Comando para tocar o som uma vez usando mpg123
-    char command[512];
-    snprintf(command, sizeof(command), "mpg123 -q \"%s\"", soundFile);
-
-    // Executa o comando
-    system(command);
-
-    // Opcional: Espera um tempo antes de continuar (por exemplo, 5 segundos)
-    //sleep(5);
-
-    return; // Finaliza a função
-}
 
 int main(){
 
     EeveeSt Eev = {55, 55, 50, 45, 65, 55, 3, 2, 2};    VictiniSt Vic = {100, 100, 100, 100, 100, 100, 3, 2, 2};  BulbasaurSt Bulba = {45, 49, 49, 45, 45, 65, 3, 2, 2};
-
+                                                                                                                  Attbulbasaur ATKbulba[3] ={{3}, {3}, {3}};
 
     void clear_screen() {
         #ifdef _WIN32
@@ -64,7 +44,8 @@ int main(){
     char nickname[500];
     printf("Digite um nome abaixo:\n");
     scanf("%s", nickname);
-    
+
+   dialogoInicial(nickname); 
    //escolha do pokemon 
     int poke;
     int x;
@@ -139,12 +120,12 @@ int main(){
 
                 if(x == 1){
 
-                    Hpp(&Bulba, &Vic, Vic.HP, Bulba.Attack, Vic.Defense);
+                    //Hpp(&Bulba, &Vic, Vic.HP, Bulba.Attack, Vic.Defense);
                 
 
                 clear_screen();
                 victiniFront(Vic);
-                bulbasaur(Bulba);
+                bulbasaurATT(Bulba, ATKbulba);
                 }
                 
                 else if(x == 2){
@@ -153,7 +134,7 @@ int main(){
                     victiniFront(Vic);
                     bulbaBAG(Bulba);          
                 
-                   ITEMbulbasaur(&Bulba, Bulba.HP, Bulba.Attack, Bulba.potion, Bulba.PP, Bulba.DMG);
+                   ITEMbulbasaur(&Bulba, ATKbulba, Bulba.HP, Bulba.Attack, Bulba.potion, Bulba.PP, Bulba.DMG);
                 
                     clear_screen();
                     victiniFront(Vic);
@@ -211,7 +192,7 @@ int main(){
             vitoria++;
         }
 
-        dialogoFinal(vitoria);
+        dialogoFinal(vitoria, nickname);
 
     
     // Para a música matando o processo mpg123

@@ -1,10 +1,10 @@
 #include "PokemonUser.h"
 #include <stdio.h>
 #include "statusPoke.h"
-    
+#include "music.h" 
 //DIALOGOS
 
-void dialogoInicial(void) {
+void dialogoInicial(char nickname[]) {
 
     int escolha;
     printf("Treinador N: Nos encontramos de novo %s... deve ser algum tipo de destino.\nTreinador N: Entretanto, nosso encontro terá um rumo diferente desta vez, pois eu tenho a própria personificação da vitória ao meu lado...\nTreinador N: VICTINI!\n\n", nickname);
@@ -46,17 +46,25 @@ void dialogoInicial(void) {
     }
     //MECANICA ITENS
 
-    void ITEMbulbasaur(BulbasaurSt *Bulba, int HP, int Attack, int potion, int PP, int DMG){
+    void ITEMbulbasaur(BulbasaurSt *Bulba, Attbulbasaur ATKbulba[], int HP, int Attack, int potion, int PP, int DMG){
         int escolha;
+        while(escolha != 'o'){
+       
         scanf("%d", &escolha);
+
+    
 
         if(escolha == 1 && potion > 0){
             Bulba -> potion--;
             Bulba -> HP += 20;
+        printf("                                        Bulbasaur está bebendo a poção de cura!!\n");
+        musicHP();
+        return;
         }
         else if(escolha == 2 && PP > 0){
             Bulba -> PP --;
-            Bulba ->; //PP do pokemon ++
+            ATKbulba[0].pp ++; //PP do pokemon ++
+        return;
         }
         else if(escolha == 3 && DMG > 0){
             Bulba -> DMG --;
@@ -64,6 +72,7 @@ void dialogoInicial(void) {
         }
         else if(escolha == 0){
            return;
+        }
         }
     }
 
@@ -74,10 +83,12 @@ void dialogoInicial(void) {
         if(escolha == 1 && potion > 0){
             Vic -> potion--;
             Vic -> HP += 20;
+        printf("                                        Victini está bebendo a poção de cura!!\n");
+        musicHP();
         }
         else if(escolha == 2 && PP > 0){
             Vic -> PP --;
-            Vic ->;//PP do pokemon ++
+           // Vic ->;//PP do pokemon ++
         }
         else if (escolha == 3 && DMG > 0){
             Vic -> DMG --;
@@ -95,10 +106,12 @@ void dialogoInicial(void) {
         if(escolha == 1 && potion > 0){
             Eev -> potion--;
             Eev -> HP += 20;
+        printf("                                        Eevee está bebendo a poção de cura!!\n");
+        musicHP();
         }
         else if(escolha == 2 && PP > 0){
             Eev -> PP --;
-            Eev ->;//PP do pokemon ++
+          //  Eev ->;//PP do pokemon ++
         }
         else if (escolha == 3 && DMG > 0){
             Eev -> DMG --;
@@ -400,6 +413,29 @@ void eeveeBAG(EeveeSt Eev){
     printf("                                                █████████                                           \n");    
                                                                                                                           
     }
+//ATTACK ABERTA SPRITE
+
+    void bulbasaurATT(BulbasaurSt Bulba, Attbulbasaur ATKbulba[]){
+        
+
+    printf("                                      █▓▒▓▒▓█                                                       \n");
+    printf("                                     █▓███▒░▒▓███           ███                                     \n");
+    printf("                                     █▓▓▓▓▓░░▒▒░▒█████    ██▓░██                                    \n");
+    printf("                                    █▓▒▒░░░▒▓▓░░▒▓███▓▓█▓▒▓▒░▒██                                    \n");
+    printf("                                   █▓▒▒░░░░░▒▒▓▓▓▒▒▒▒▓▓▓█▓░░▒▓██                                    \n");
+    printf("                                 █▓▒▒░    ░░▒▒▒▒▒██▓▒▒▒▒▓██▓▓▓███                                   \n");
+    printf("                                 █▒▒▒░   ░▒▒▒▒▒▒▒▒▒▒█▓▒▒▒██▓▓▓▒▓█                                   \n");
+    printf("                                █▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▒▒██▓▓▓▒░▓█                                  \n");
+    printf("                                █▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▓▒██▓▓▓▓▓▓██   |***************************|  \n");
+    printf("                                 ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▓▓██▓▓▓▓▓▓██    |*# 1.Attack :::::::::::::#*|  \n");
+    printf("                                  ██▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒███▓████████     |##      %d/3 :::::::::::::##|  \n",ATKbulba[0].pp);
+    printf("                                  ██████▓▒▒▒▒▒▒█████▓▓▓▓▓▓▓▓▓██      |## 2.Attack : 3.Attack ::##|  \n");
+    printf("                                 ██▓▓▓██████████▓▓███▒░▓██▓▓▓██      |##      %d/3 :      %d/3 ::##|  \n",ATKbulba[1].pp, ATKbulba[2].pp);
+    printf("                                 ██████████▓▓██▓▓▓▓██▓▒▒██▓▓██       |////////////////////////////  \n");
+    printf("                                 █████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██▓▓██       | HP:%02d/45               /// \n",Bulba.HP);
+    printf("                                  ████████▓▓▓▓██▓▓▓▓▓▓▓██████        |//////////////////////////    \n");
+    printf("                                   ███████████████████▓██                                           \n");
+    }
 
 
 
@@ -441,10 +477,10 @@ printf("                                                                        
 
 
 
-void dialogoFinal(vitoria) {
-
+void dialogoFinal(int vitoria, char nickname[]) {
+ int escolha;
     if (vitoria == 1) {
-        int escolha;
+       
 
 		printf("Treinador N: ...\nTreinador N: Hahahaha... eu perdi, né?\nTreinador N: Nunca pensei que pokémons poderiam lutar com tanto vigor... seus pokémons não estavam sendo forçados...\nTreinador N: Eles estavam lutando por vontade própria, para defender você.\n\n");
 	
@@ -472,7 +508,7 @@ void dialogoFinal(vitoria) {
 
         else if (vitoria == 0) {
 
-		    printf("Treinador N: Como eu te disse, %s... sua amizade com seus pokémons não é forte o bastante. Patético.\n");
+		    printf("Treinador N: Como eu te disse, %s... sua amizade com seus pokémons não é forte o bastante. Patético.\n", nickname);
 		    printf("Digite 1 para falar a primeira opção e 2 para falar a segunda:\n[1] Eu posso ter perdido, N, mas isso não quer dizer que você esteja certo.\n[2] Impossível eu ter perdido, você trapaçeou!\n\n");
 
 		    scanf("%d", &escolha);
@@ -491,7 +527,7 @@ void dialogoFinal(vitoria) {
 		
 		    else {
 		
-		        printf("%s: Impossível eu ter perdido, você trapaçeou!\nTreinador N: Sério, %s? Me acusando de trapaça? Não pensei que você chegaria tão baixo... isso mostra tanto sobre você.\nTreinador N: Enfim, eu vou mudar o mundo, a gente se vê por aí, %s\n", nickname, nickname);
+		        printf("%s: Impossível eu ter perdido, você trapaçeou!\nTreinador N: Sério, %s? Me acusando de trapaça? Não pensei que você chegaria tão baixo... isso mostra tanto sobre você.\nTreinador N: Enfim, eu vou mudar o mundo, a gente se vê por aí, %s\n", nickname, nickname, nickname);
 		
 		    }
 		

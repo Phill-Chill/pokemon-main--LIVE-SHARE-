@@ -19,13 +19,14 @@
         //int Charm = 100; // eevee sempre acerta e diminui o dano de seu oponente  
     } EeveeSt, BulbasaurSt, VictiniSt;
    typedef struct{
-        char nome[100];
-        int damage;
+       // char nome[100];
+       // int damage;
         int pp;
-        char type;
-        char style;
-        int accuracy;
-   }VictiniSt, BulbasaurSt, EeveeSt;/*MESMA DECLARAÇÃO DA STARUCT ACIMA: conflito*/
+       // char type;
+       // char style;
+       // int accuracy;
+   } Atteevee, Attbulbasaur, Attvictini;
+   //VictiniSt, BulbasaurSt, EeveeSt;/*MESMA DECLARAÇÃO DA STARUCT ACIMA: conflito*/
 
    // tackle, razor_blade, swift, scratch;
     #endif
