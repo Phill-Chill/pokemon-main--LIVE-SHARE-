@@ -40,9 +40,6 @@ void dialogoInicial(char nickname[])
     // Fecha o arquivo
     fclose(arquivo);
 
-    // printf("Treinador N: Nos encontramos de novo %s... deve ser algum tipo de destino.\nTreinador N: Entretanto, nosso encontro terá um rumo diferente desta vez, pois eu tenho a própria personificação da vitória ao meu lado...\nTreinador N: VICTINI!\n\n", nickname);
-    // printf("Digite 1 para falar a primeira opção e 2 para falar a segunda:\n[1] Isso acaba aqui N, pare com essa loucura!\n[2] Eu não ligo, já te venci uma vez, posso vencer de novo.\n\n");
-
     scanf("%d", &escolha);
 
     while (escolha < 1 || escolha > 2)
@@ -402,7 +399,7 @@ void bulbaAttackSystem(BulbasaurSt *Bulba, bulbasaurAttacks bulbasaurAtta[], Vic
 
     srand(time(0));
     int i = rand() % 4;
-    int g = rand() % 100;
+    int g =  rand() % 100;
     int AttackMusic = -1;
     int accuTempVic = victiniAtta[i].accuracy;
     if (x != 2)
@@ -566,8 +563,7 @@ void bulbaAttackSystem(BulbasaurSt *Bulba, bulbasaurAttacks bulbasaurAtta[], Vic
     chooseAttack = AttackMusic;
 
     chooseAttack--;
-    // printf("%d ---\n", chooseAttack);
-    // sleep_ms(5000);
+   
     if (chooseAttack < 0)
     {
         return;
@@ -686,7 +682,7 @@ void bulbaAttackSystem(BulbasaurSt *Bulba, bulbasaurAttacks bulbasaurAtta[], Vic
             if (accuTempBulba >= p)
             {
 
-                if (victiniAtta[i].attackStyle != 3)
+                if (victiniAtta[i].attackStyle != 3 || acertou == 0)
                 {
 
                     printf("\n                                           Bulbasaur usou Growl, o inimigo teve seu status de ataque reduzido!\n");
@@ -1893,7 +1889,7 @@ void dialogoFinal(int vitoria, char nickname[])
         if (escolha == 1)
         {
 
-            printf("							  %s: Eu posso ter perdido, N, mas isso não quer dizer que você esteja certo.\n													Treinador N: Isso quer sim que eu estou certo, meus ideais foram mais fortes, agora ninguém poderá impedir meu plano.\n\n												Treinador N: A gente se vê por aí, %s.\n\n", nickname, nickname);
+            printf("							  %s: Eu posso ter perdido, N, mas isso não quer dizer que você esteja certo.\n\n													Treinador N: Isso quer sim que eu estou certo, meus ideais foram mais fortes, agora ninguém poderá impedir meu plano.\n												Treinador N: A gente se vê por aí, %s.\n\n", nickname, nickname);
         }
 
         else
