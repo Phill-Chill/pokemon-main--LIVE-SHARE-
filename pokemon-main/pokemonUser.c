@@ -381,7 +381,7 @@ void vicAttackSystem(VictiniSt *Vic, victiniAttacks victiniAtta[], EeveeSt *Eev,
         else
         {
 
-            printf("Eevee não atacou pois não tem PP suficiente neste ataque!\n");
+            printf("                           Eevee não atacou pois não tem PP suficiente neste ataque!\n");
             sleep_ms(2000);
             return;
             //////////////////////////////////////////////////////////////////////////////
@@ -640,7 +640,7 @@ void bulbaAttackSystem(BulbasaurSt *Bulba, bulbasaurAttacks bulbasaurAtta[], Vic
             if (accuTempBulba >= p)
             {
 
-                if (victiniAtta[i].attackStyle != 3 && acertou == 0)
+                if (victiniAtta[i].attackStyle != 3 || acertou == 0)
                 {
                     Vic->HP -= (bulbasaurAtta[chooseAttack].damage + ((Bulba->SpAtk - Vic->SpDef) * 0.25));
                     printf("\n                                           Bulbasaur usou Razor Leaf!\n");
@@ -786,7 +786,7 @@ else if(Bulba->PP >= 1 && bulbasaurAtta[i].pp == 0){
                     {
                         Eev->HP -= (EeveeAtta[i].damage + ((Bulba->Attack - Eev->Defense) * 0.25));
                        
-                        printf(" Bulbasaur usou Vine Whipe!\n");
+                        printf("                           Bulbasaur usou Vine Whipe!\n");
                         sleep_ms(1000);
                         Attacksound(&chooseAttack, &i, poke);
 
@@ -802,7 +802,7 @@ else if(Bulba->PP >= 1 && bulbasaurAtta[i].pp == 0){
                     {
 
                         Eev->HP -= (EeveeAtta[i].damage + ((Bulba->Attack - Eev->Defense) * 0.25));
-                        printf(" Bulbasaur usou Take Down!\n");
+                        printf("                           Bulbasaur usou Take Down!\n");
                         sleep_ms(1000);
                         Attacksound(&chooseAttack, &i, poke);
                        

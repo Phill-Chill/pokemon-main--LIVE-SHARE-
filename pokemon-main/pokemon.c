@@ -1,5 +1,4 @@
 #include <stdio.h>
-// #include <time.h>
 #include <stdlib.h>
 #include "PokemonUser.h"
 #include "statusPoke.h"
@@ -255,10 +254,10 @@ int main()
         // Executa o comando
         system(command);
     }
-    // sleep_ms(2000);
+    
     dialogoFinal(vitoria, nickname);
 
-    // Para a música matando o processo mpg123
+    // Para a música
     system("pkill mpg123");
     clear_screen();
     return 0;
