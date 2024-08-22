@@ -1,0 +1,31 @@
+1. Instalar o mpg123
+
+Abra o terminal e execute o seguinte comando:
+
+	sudo apt install mpg123
+
+
+2. Extrair a Pasta do GitHub
+
+Se você baixou um arquivo ZIP do GitHub:
+
+    Navegue até a pasta onde o arquivo ZIP foi baixado e extraia o arquivo ZIP.
+
+Entre no diretório extraído:
+
+    cd caminho/do/arquivo/extraído
+
+3. Compilar o Código
+
+No terminal, dentro da pasta onde estão os arquivos .c, execute o comando de compilação:
+
+	gcc pokemon.c pokemonUser.c music.c -o pokemon
+
+4. Executar o Programa
+
+Após a compilação, execute o programa gerado:
+
+
+	./pokemon
+
+
